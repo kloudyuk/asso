@@ -25,7 +25,7 @@ var (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:           "asso START_URL",
-	Short:         "Populate AWS config for available profiles",
+	Short:         "Build AWS config file from SSO login",
 	SilenceErrors: true,
 	SilenceUsage:  true,
 	Args:          cobra.ExactArgs(1),
