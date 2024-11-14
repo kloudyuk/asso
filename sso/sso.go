@@ -101,15 +101,15 @@ func UpdateConfig(configFile, startURL, ssoSessionName, ssoRegion, defaultRegion
 		fmt.Println()
 	}
 	// Add each profile to the config
-	fmt.Println("Add profiles to config")
 	for _, p := range profiles {
 		s := cfg.Section(fmt.Sprintf("profile %s", p.Name))
 		s.Key("sso_session").SetValue(ssoSessionName)
 		s.Key("sso_account_id").SetValue(p.SSOAccountID)
 		s.Key("sso_role_name").SetValue(p.SSORoleName)
 		s.Key("region").SetValue(defaultRegion)
+		fmt.Printf("Added profile '%s' to config\n", p.Name)
 	}
-	fmt.Println("Save config")
+	fmt.Println("Saving config to:", configFile)
 	return cfg.SaveTo(configFile)
 }
 
